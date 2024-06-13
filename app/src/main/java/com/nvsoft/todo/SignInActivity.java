@@ -10,12 +10,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.HashMap;
-
 public class SignInActivity extends AppCompatActivity {
 
     TextView signUp;
-    EditText userEmail;
+    EditText userName;
     EditText userPassword;
     Button signInButton;
 
@@ -25,7 +23,7 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
 
         signUp = findViewById(R.id.sign_up_text);
-        userEmail = findViewById(R.id.user_email_sign_in);
+        userName = findViewById(R.id.user_name_sign_in);
         userPassword = findViewById(R.id.user_password_sign_in);
         signInButton = findViewById(R.id.button);
 
@@ -40,14 +38,14 @@ public class SignInActivity extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = userEmail.getText().toString();
+                String username = userName.getText().toString();
                 String password = userPassword.getText().toString();
-                if (UserManager.validateUser(SignInActivity.this, email, password)) {
+                if (UserManager.validateUser(SignInActivity.this, username, password)) {
                     Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(SignInActivity.this, "Wrong email or password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignInActivity.this, "Wrong username or password", Toast.LENGTH_SHORT).show();
                 }
             }
         });

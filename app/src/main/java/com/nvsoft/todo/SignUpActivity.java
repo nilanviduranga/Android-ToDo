@@ -15,6 +15,7 @@ import java.util.HashMap;
 public class SignUpActivity extends AppCompatActivity {
 
     TextView signIn;
+    EditText userName;
     EditText userEmail;
     EditText password;
     EditText confirmPassword;
@@ -26,6 +27,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         signIn = findViewById(R.id.sign_in_text);
+        userName = findViewById(R.id.user_name);
         userEmail = findViewById(R.id.user_email);
         password = findViewById(R.id.password);
         confirmPassword = findViewById(R.id.confirm_password);
@@ -42,12 +44,13 @@ public class SignUpActivity extends AppCompatActivity {
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String username = userName.getText().toString();
                 String email = userEmail.getText().toString();
                 String pwd = password.getText().toString();
                 String confirmPwd = confirmPassword.getText().toString();
 
                 if (pwd.equals(confirmPwd)) {
-                    if (UserManager.addUser(SignUpActivity.this, email, pwd)) {
+                    if (UserManager.addUser(SignUpActivity.this, username, email, pwd)) {
                         Toast.makeText(SignUpActivity.this, "User Registered Successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
                         startActivity(intent);
