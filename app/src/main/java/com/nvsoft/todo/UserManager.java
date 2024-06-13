@@ -52,4 +52,14 @@ public class UserManager {
         }
         return users;
     }
+    public static String getUserEmail(Context context, String username) {
+        HashMap<String, User> users = readData(context);
+        if (users.containsKey(username)) {
+            return users.get(username).getEmail();
+        } else {
+            return null; // or handle appropriately if user does not exist
+        }
+    }
+
+
 }

@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     Button newTaskAdd;
+    Button userInfo;
 
     Button setting;
     ListView taskList;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         newTaskAdd = findViewById(R.id.add_new_task_button);
         setting = findViewById(R.id.setting_button);
+        userInfo = findViewById(R.id.user_info_button);
         taskList = findViewById(R.id.taskListView);
 
         newTaskAdd.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +45,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        userInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, UserInfoActivity.class);
                 startActivity(intent);
             }
         });
