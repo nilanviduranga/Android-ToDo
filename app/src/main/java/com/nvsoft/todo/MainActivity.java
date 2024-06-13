@@ -16,6 +16,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     Button newTaskAdd;
+
+    Button setting;
     ListView taskList;
     ArrayList<String> itemList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
@@ -26,12 +28,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         newTaskAdd = findViewById(R.id.add_new_task_button);
+        setting = findViewById(R.id.setting_button);
         taskList = findViewById(R.id.taskListView);
 
         newTaskAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TaskAddActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SignInActivity.class);
                 startActivity(intent);
             }
         });
