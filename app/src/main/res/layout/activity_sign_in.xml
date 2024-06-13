@@ -102,13 +102,13 @@
         app:layout_constraintVertical_bias="0.824" />
 
     <EditText
-        android:id="@+id/user_email_sign_in"
+        android:id="@+id/user_name_sign_in"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginEnd="80dp"
         android:layout_marginTop="8dp"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewEmail"
         app:layout_constraintEnd_toEndOf="parent" />
