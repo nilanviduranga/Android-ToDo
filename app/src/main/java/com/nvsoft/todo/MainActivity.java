@@ -49,6 +49,16 @@ public class MainActivity extends AppCompatActivity {
                 alert.setMessage("What you wont to do this Task?");
                 alert.setCancelable(true);
 
+                alert.setNegativeButton("Edit", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(MainActivity.this, TaskEditActivity.class);
+                        intent.putExtra("task_position", position);
+                        intent.putExtra("task_text", itemList.get(position));
+                        startActivity(intent);
+                    }
+                });
+
                 alert.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -58,12 +68,12 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                alert.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
+//                alert.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.cancel();
+//                    }
+//                });
 
 
                 AlertDialog alertDialog = alert.create();
