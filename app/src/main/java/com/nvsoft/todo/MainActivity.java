@@ -1,9 +1,13 @@
 package com.nvsoft.todo;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -35,6 +39,38 @@ public class MainActivity extends AppCompatActivity {
         itemList = FileManager.readData(this);
         arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, itemList);
         taskList.setAdapter(arrayAdapter);
+
+        taskList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+                alert.setTitle("Manage Task");
+                alert.setMessage("What you wont to do this Task?");
+                alert.setCancelable(true);
+
+                alert.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        itemList.remove(position);
+                        arrayAdapter.notifyDataSetChanged();
+                        FileManager.writeData(itemList,getApplicationContext());
+                    }
+                });
+
+                alert.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+
+                AlertDialog alertDialog = alert.create();
+                alertDialog.show();
+
+            }
+        });
     }
 
     @Override
