@@ -11,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -20,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button newTaskAdd;
     Button userInfo;
 
-    Button setting;
+    Button devInfo;
     ListView taskList;
     ArrayList<String> itemList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         SessionManager.validateSession(this);
 
         newTaskAdd = findViewById(R.id.add_new_task_button);
-        setting = findViewById(R.id.setting_button);
+        devInfo = findViewById(R.id.dev_info_button);
         userInfo = findViewById(R.id.user_info_button);
         taskList = findViewById(R.id.taskListView);
 
@@ -46,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        setting.setOnClickListener(new View.OnClickListener() {
+        devInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+                Intent intent = new Intent(MainActivity.this, DevInfoActivity.class);
                 startActivity(intent);
             }
         });
