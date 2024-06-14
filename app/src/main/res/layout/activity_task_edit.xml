@@ -6,12 +6,67 @@
     android:layout_height="match_parent"
     tools:context=".TaskEditActivity">
 
+    <TextView
+        android:id="@+id/logoPart2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/logo_part_1"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.92" />
+
+    <TextView
+        android:id="@+id/logoPart1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/logo_part_2"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.92" />
+
+    <TextView
+        android:id="@+id/textViewEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Task Name"
+        android:textColor="#878787"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.299" />
+
+    <TextView
+        android:id="@+id/signIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Edit Task"
+        android:textColor="#1E1E1E"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.094" />
+
     <EditText
         android:id="@+id/editTaskName"
         android:layout_width="307dp"
         android:layout_height="57dp"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="236dp"
         android:hint="Edit task"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,10 +74,10 @@
 
     <Button
         android:id="@+id/taskSubmitButton"
-        android:layout_width="280dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="156dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="320dp"
         android:text="Submit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
