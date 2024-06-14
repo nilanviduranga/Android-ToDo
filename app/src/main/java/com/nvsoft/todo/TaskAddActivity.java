@@ -18,6 +18,9 @@ public class TaskAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_add);
 
+        // Validate the user session
+        SessionManager.validateSession(this);
+
         task = findViewById(R.id.newTaskName);
         submit = findViewById(R.id.taskSubmitButton);
 

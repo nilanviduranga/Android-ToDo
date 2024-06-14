@@ -19,6 +19,9 @@ public class TaskEditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_edit);
 
+        // Validate the user session
+        SessionManager.validateSession(this);
+
         task = findViewById(R.id.editTaskName);
         submit = findViewById(R.id.taskSubmitButton);
 
