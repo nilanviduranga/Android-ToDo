@@ -61,5 +61,23 @@ public class UserManager {
         }
     }
 
+    public static boolean updateUserInfo(Context context, String oldUsername, String newUsername, String newEmail) {
+        HashMap<String, User> users = readData(context);
+        if (users.containsKey(oldUsername)) {
+            User user = users.get(oldUsername);
+            user.setUsername(newUsername);
+            Session.username = newUsername;
+            user.setEmail(newEmail);
+            if (!oldUsername.equals(newUsername)) {
+                users.remove(oldUsername);
+                users.put(newUsername, user);
+            }
+            writeData(users, context);
+            return true;
+        } else {
+            return false; // User does not exist
+        }
+    }
+
 
 }

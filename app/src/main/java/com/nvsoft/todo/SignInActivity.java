@@ -42,6 +42,7 @@ public class SignInActivity extends AppCompatActivity {
                 String password = userPassword.getText().toString();
                 if (UserManager.validateUser(SignInActivity.this, username, password)) {
                     Session.username = username;
+                    Session.user_password = password;
                     Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
