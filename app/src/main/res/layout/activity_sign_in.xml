@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:fontFamily="@font/roboto_regular"
-        android:text="Email"
+        android:text="User Namw"
         android:textColor="#878787"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
