@@ -10,9 +10,11 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class FileManager {
-    public static final String FILENAME = "listinfo.dat";
+    String fileName = Session.username;
+    public static String FILENAME = Session.username + ".dat";
 
     public static void writeData(ArrayList<String> item, Context context) {
+        FILENAME = Session.username + ".dat";
         try {
             FileOutputStream fos = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
             ObjectOutputStream oas = new ObjectOutputStream(fos);
@@ -25,6 +27,7 @@ public class FileManager {
 
     public static ArrayList<String> readData(Context context) {
         ArrayList<String> itemList = null;
+        FILENAME = Session.username + ".dat";
         try {
             FileInputStream fis = context.openFileInput(FILENAME);
             ObjectInputStream ois = new ObjectInputStream(fis);
